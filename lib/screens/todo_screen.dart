@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class Todo_Screen extends StatefulWidget {
-
   @override
   _Todo_ScreenState createState() => _Todo_ScreenState();
 }
@@ -21,97 +20,96 @@ class _Todo_ScreenState extends State<Todo_Screen> {
     // TODO: implement build
     return Scaffold(
         body: Stack(
-        alignment: Alignment.bottomCenter,
-        children: [
-        SafeArea(
-        child: Expanded(
-        child: Column(
-        children: [
-        Container(
-        height: 90,
-        child: ListView(
-        scrollDirection: Axis.horizontal,
-        children: [
-        TreeStory(
-        treeName: "Tree1",
-        treeColor: Colors.orange,
-    ),
-    TreeStory(
-    treeName: "Tree2",
-    treeColor: Colors.red,
-    ),
-    TreeStory(
-    treeName: "Tree3",
-    treeColor: Colors.blue,
-    ),
-    TreeStory(
-    treeName: "Tree4",
-    treeColor: Colors.purple,
-    ),
-    ],
-    ),
-    decoration: BoxDecoration(
-    border: Border(
-    bottom: BorderSide(
-    width: 0.2, color: Colors.greenAccent)),
-    ),
-    ),
-    Expanded(
-    child: Column(
-    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-    children: [
-    Text(
-    '"Some random quote."',
-    style: TextStyle(fontSize: 30),
-    ),
-    CircleAvatar(
-    backgroundColor: Color(0xFF00b894),
-    minRadius: 100,
-    ),
-    FlatButton(
-    onPressed: () {
+          alignment: Alignment.bottomCenter,
+          children: [
+            SafeArea(
+              child: Expanded(
+                child: Column(
+                  children: [
+                    Container(
+                      height: 90,
+                      child: ListView(
+                        scrollDirection: Axis.horizontal,
+                        children: [
+                          TreeStory(
+                            treeName: "Tree1",
+                            treeColor: Colors.orange,
+                          ),
+                          TreeStory(
+                            treeName: "Tree2",
+                            treeColor: Colors.red,
+                          ),
+                          TreeStory(
+                            treeName: "Tree3",
+                            treeColor: Colors.blue,
+                          ),
+                          TreeStory(
+                            treeName: "Tree4",
+                            treeColor: Colors.purple,
+                          ),
+                        ],
+                      ),
+                      decoration: BoxDecoration(
+                        border: Border(
+                            bottom: BorderSide(
+                                width: 0.2, color: Colors.greenAccent)),
+                      ),
+                    ),
+                    Expanded(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Text(
+                            '"Some random quote."',
+                            style: TextStyle(fontSize: 30),
+                          ),
+                          CircleAvatar(
+                            backgroundColor: Color(0xFF00b894),
+                            minRadius: 100,
+                          ),
+                          FlatButton(
+                            onPressed: () {
 //                            Start Timer
-    },
-    padding:
-    EdgeInsets.symmetric(vertical: 5, horizontal: 30),
-    color: Colors.red,
-    child: Text(
-    'Start',
-    style: TextStyle(color: Colors.white, fontSize: 30),
-    ),
-    ),
-    ],
-    ),
-    ),
-    ],
-    ),
-    ),
+                            },
+                            padding: EdgeInsets.symmetric(
+                                vertical: 5, horizontal: 30),
+                            color: Colors.red,
+                            child: Text(
+                              'Start',
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 30),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
+        bottomNavigationBar: BottomNavigationBar(
+          backgroundColor: Color(0xFF00b894),
+          items: const <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: Icon(Icons.calendar_today),
+              title: Text('To-do'),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.add_circle, size: 60, color: Colors.amberAccent),
+              title: Text(''),
 
-    ),
-    ],
-    ),
-    bottomNavigationBar: BottomNavigationBar(
-    items: const <BottomNavigationBarItem>[
-    BottomNavigationBarItem(
-    icon: Icon(Icons.home),
-    title: Text('Home'),
-    ),
-    BottomNavigationBarItem(
-    icon: Icon(Icons.business),
-    title: Text('Business'),
-    ),
-    BottomNavigationBarItem(
-    icon: Icon(Icons.school),
-    title: Text('School'),
-    ),
-    ],
-    currentIndex: _selectedIndex,
-    selectedItemColor: Colors.amber[800],
-    onTap:
-    _onItemTapped
-    ,
-
-    ));
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.nature),
+              title: Text('Garden'),
+            ),
+          ],
+          currentIndex: _selectedIndex,
+          selectedItemColor: Colors.white,
+          onTap: _onItemTapped,
+        ));
   }
 }
 
@@ -160,4 +158,3 @@ class TreeStory extends StatelessWidget {
 //        color: Color(0xFF00b894));
 //  }
 //}
-
