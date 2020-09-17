@@ -4,30 +4,51 @@ class Garden_Widget extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Column(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
-        Text(
-          '"Your Garden is Strong."',
-          style: TextStyle(fontSize: 30),
-        ),
-        CircleAvatar(
-          backgroundColor: Color(0xFF00b894),
-          minRadius: 100,
-        ),
-        FlatButton(
-          onPressed: () {
-//                            Start Timer
-          },
-          padding: EdgeInsets.symmetric(
-              vertical: 5, horizontal: 30),
-          color: Colors.red,
-          child: Text(
-            'Start',
-            style:
-            TextStyle(color: Colors.white, fontSize: 30),
+        Expanded(
+          child: GridView.count(
+            crossAxisCount: 2,
+            children: [
+              Garden_Avatar("Tree1"),
+              Garden_Avatar("Tree2"),
+              Garden_Avatar("Tree3"),
+              Garden_Avatar("Tree4"),
+
+            ]
           ),
-        ),
-      ],
+        )
+        ]
+
+    );
+  }
+}
+
+class Garden_Avatar extends StatelessWidget {
+
+  final String treeName;
+
+  Garden_Avatar(@required this.treeName);
+
+  String checkTreeName(){
+    if (treeName != null){
+      return treeName;
+    }
+    else {
+      return "Your pot is empty";
+    }
+  }
+
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(10.0),
+      child: CircleAvatar(
+
+        backgroundColor: Colors.green[100],
+        child: Text(checkTreeName()),
+
+      ),
     );
   }
 }
