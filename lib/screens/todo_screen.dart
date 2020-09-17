@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:nurture_land/widgets/garden_widget.dart';
+import 'package:nurture_land/widgets/todo_widget.dart';
 
 class Todo_Screen extends StatefulWidget {
   @override
@@ -26,34 +28,9 @@ class _Todo_ScreenState extends State<Todo_Screen> {
               child: Expanded(
                 child: Column(
                   children: [
-                    TopBarStory(),
+                    _selectedIndex == 0 ? TopBarStory(): Container(),
                     Expanded(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          Text(
-                            '"Some random quote."',
-                            style: TextStyle(fontSize: 30),
-                          ),
-                          CircleAvatar(
-                            backgroundColor: Color(0xFF00b894),
-                            minRadius: 100,
-                          ),
-                          FlatButton(
-                            onPressed: () {
-//                            Start Timer
-                            },
-                            padding: EdgeInsets.symmetric(
-                                vertical: 5, horizontal: 30),
-                            color: Colors.red,
-                            child: Text(
-                              'Start',
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 30),
-                            ),
-                          ),
-                        ],
-                      ),
+                      child: _selectedIndex == 0 ? Todo_widget() : Garden_Widget(),
                     ),
                   ],
                 ),
@@ -85,10 +62,10 @@ class _Todo_ScreenState extends State<Todo_Screen> {
   }
 }
 
+
+
 class TopBarStory extends StatelessWidget {
-  const TopBarStory({
-    Key key,
-  }) : super(key: key);
+
 
   @override
   Widget build(BuildContext context) {
