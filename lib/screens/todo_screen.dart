@@ -17,6 +17,31 @@ class _Todo_ScreenState extends State<Todo_Screen> {
     });
   }
 
+  Widget getTopScreen(){
+    if (_selectedIndex == 0){
+      return TopBarStory();
+    }
+    else if (_selectedIndex == 1){
+      return Container();
+    }
+    else {
+      return Container();
+    }
+  }
+
+  Widget getMainScreen(){
+    if (_selectedIndex == 0){
+      return Todo_widget();
+    }
+    else if (_selectedIndex == 2){
+      return Garden_Widget();
+    }
+    else {
+//    TODO: Add a bottomsheet here
+      return Container();
+    }
+  }
+
   @override 
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -28,9 +53,9 @@ class _Todo_ScreenState extends State<Todo_Screen> {
               child: Expanded(
                 child: Column(
                   children: [
-                    _selectedIndex == 0 ? TopBarStory(): Container(),
+                    getTopScreen(),
                     Expanded(
-                      child: _selectedIndex == 0 ? Todo_widget() : Garden_Widget(),
+                      child: getMainScreen(),
                     ),
                   ],
                 ),
@@ -89,6 +114,10 @@ class TopBarStory extends StatelessWidget {
           TreeStory(
             treeName: "Tree4",
             treeColor: Colors.purple,
+          ),
+          TreeStory(
+            treeName: "Tree5",
+            treeColor: Colors.yellow,
           ),
         ],
       ),
