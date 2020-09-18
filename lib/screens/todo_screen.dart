@@ -38,11 +38,27 @@ class _Todo_ScreenState extends State<Todo_Screen> {
     }
     else {
 //    TODO: Add a bottomsheet here
-      return Container();
+      return Container(
+        height: 20,
+        color: Colors.amber,
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              const Text('Modal BottomSheet'),
+              RaisedButton(
+                child: const Text('Close BottomSheet'),
+                onPressed: (){},
+              )
+            ],
+          ),
+        ),
+      );
     }
   }
 
-  @override 
+  @override
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(

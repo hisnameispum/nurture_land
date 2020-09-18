@@ -13,7 +13,6 @@ class Garden_Widget extends StatelessWidget{
               Garden_Avatar("Tree2"),
               Garden_Avatar("Tree3"),
               Garden_Avatar("Tree4"),
-
             ]
           ),
         )
