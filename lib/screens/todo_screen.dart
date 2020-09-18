@@ -29,6 +29,8 @@ class _Todo_ScreenState extends State<Todo_Screen> {
     }
   }
 
+
+
   Widget getMainScreen(){
     if (_selectedIndex == 0){
       return Todo_widget();
@@ -38,23 +40,16 @@ class _Todo_ScreenState extends State<Todo_Screen> {
     }
     else {
 //    TODO: Add a bottomsheet here
-      return Container(
-        height: 20,
-        color: Colors.amber,
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              const Text('Modal BottomSheet'),
-              RaisedButton(
-                child: const Text('Close BottomSheet'),
-                onPressed: (){},
-              )
-            ],
-          ),
-        ),
-      );
+      showModalBottomSheet(context: context, builder: (context){
+        return Column(
+          children: [
+            Container(
+              color: Colors.green,
+
+            ),
+          ],
+        );
+      });
     }
   }
 
