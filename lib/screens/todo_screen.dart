@@ -40,16 +40,8 @@ class _Todo_ScreenState extends State<Todo_Screen> {
     }
     else {
 //    TODO: Add a bottomsheet here
-      showModalBottomSheet(context: context, builder: (context){
-        return Column(
-          children: [
-            Container(
-              color: Colors.green,
 
-            ),
-          ],
-        );
-      });
+    return MyBottomSheet();
     }
   }
 
@@ -74,6 +66,7 @@ class _Todo_ScreenState extends State<Todo_Screen> {
             ),
           ],
         ),
+
         bottomNavigationBar: BottomNavigationBar(
           backgroundColor: Color(0xFF00b894),
           items: const <BottomNavigationBarItem>[
@@ -85,6 +78,7 @@ class _Todo_ScreenState extends State<Todo_Screen> {
               icon: Icon(Icons.add_circle, size: 60, color: Colors.amberAccent),
               title: Text(''),
 
+
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.nature),
@@ -94,9 +88,12 @@ class _Todo_ScreenState extends State<Todo_Screen> {
           currentIndex: _selectedIndex,
           selectedItemColor: Colors.white,
           onTap: _onItemTapped,
-        ));
+        ),
+    );
   }
 }
+
+
 
 
 
@@ -155,6 +152,52 @@ class TreeStory extends StatelessWidget {
         backgroundColor: treeColor,
         child: Text(treeName),
         minRadius: 35,
+      ),
+    );
+  }
+}
+
+class MyBottomSheet extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Container(
+        width: 300,
+        height: 100,
+        color: Colors.greenAccent,
+        child: Row(
+          children: [
+            Expanded(
+
+              child: GestureDetector(
+                  child: Center(child: Text("Add Goal")),
+
+                  onTap: (){
+                  showModalBottomSheet(
+                      context: context,
+                      builder: (context) => Container(
+                        color: Colors.red,
+                        height: 200,
+                      ));
+                }
+              ),
+            ),
+            Expanded(
+              child: GestureDetector(
+                  child: Center(child: Text("Add Todo")),
+                  onTap: (){
+                    showModalBottomSheet(
+                        context: context,
+                        builder: (context) => Container(
+                          color: Colors.green,
+                          height: 200,
+                        ));
+                  }
+              ),
+            ),
+
+          ],
+        ),
       ),
     );
   }
