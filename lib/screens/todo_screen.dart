@@ -41,8 +41,6 @@ class _Todo_ScreenState extends State<Todo_Screen> {
       return Garden_Widget();
     }
     else {
-//    TODO: Add a bottomsheet here
-
     return MyBottomSheet();
     }
   }
