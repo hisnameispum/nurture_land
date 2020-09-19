@@ -9,10 +9,19 @@ class TreeStory extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 5),
-      child: CircleAvatar(
-        backgroundColor: treeColor,
-        child: Text(treeName),
-        minRadius: 35,
+      child: Draggable(
+        data: 'Flutter',
+        child: CircleAvatar(
+          backgroundColor: treeColor,
+          child: Text(treeName),
+          minRadius: 35,
+        ),
+        feedback: CircleAvatar(
+          backgroundColor: treeColor,
+          child: Text(treeName),
+          minRadius: 35,
+        ),
+        childWhenDragging: Container(),
       ),
     );
   }
