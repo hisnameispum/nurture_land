@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:nurture_land/widgets/garden_widget.dart';
 import 'package:nurture_land/widgets/todo_widget.dart';
+import 'package:nurture_land/widgets/my_bottom_sheet.dart';
+import 'package:nurture_land/widgets/top_bar_story.dart';
 
 class Todo_Screen extends StatefulWidget {
   @override
@@ -96,110 +98,4 @@ class _Todo_ScreenState extends State<Todo_Screen> {
 
 
 
-
-class TopBarStory extends StatelessWidget {
-
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 90,
-      child: ListView(
-        scrollDirection: Axis.horizontal,
-        children: [
-          TreeStory(
-            treeName: "Tree1",
-            treeColor: Colors.orange,
-          ),
-          TreeStory(
-            treeName: "Tree2",
-            treeColor: Colors.red,
-          ),
-          TreeStory(
-            treeName: "Tree3",
-            treeColor: Colors.blue,
-          ),
-          TreeStory(
-            treeName: "Tree4",
-            treeColor: Colors.purple,
-          ),
-          TreeStory(
-            treeName: "Tree5",
-            treeColor: Colors.yellow,
-          ),
-        ],
-      ),
-      decoration: BoxDecoration(
-        border: Border(
-            bottom: BorderSide(
-                width: 0.2, color: Colors.greenAccent)),
-      ),
-    );
-  }
-}
-
-class TreeStory extends StatelessWidget {
-  final String treeName;
-  final Color treeColor;
-
-  TreeStory({@required this.treeName, @required this.treeColor});
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 5),
-      child: CircleAvatar(
-        backgroundColor: treeColor,
-        child: Text(treeName),
-        minRadius: 35,
-      ),
-    );
-  }
-}
-
-class MyBottomSheet extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Container(
-        width: 300,
-        height: 100,
-        color: Colors.greenAccent,
-        child: Row(
-          children: [
-            Expanded(
-
-              child: GestureDetector(
-                  child: Center(child: Text("Add Goal")),
-
-                  onTap: (){
-                  showModalBottomSheet(
-                      context: context,
-                      builder: (context) => Container(
-                        color: Colors.red,
-                        height: 200,
-                      ));
-                }
-              ),
-            ),
-            Expanded(
-              child: GestureDetector(
-                  child: Center(child: Text("Add Todo")),
-                  onTap: (){
-                    showModalBottomSheet(
-                        context: context,
-                        builder: (context) => Container(
-                          color: Colors.green,
-                          height: 200,
-                        ));
-                  }
-              ),
-            ),
-
-          ],
-        ),
-      ),
-    );
-  }
-}
 
